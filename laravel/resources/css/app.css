@@ -4,9 +4,13 @@
 
 .del-btn {
     opacity: 0;
+    top: 5px;
+    right: 5px;
 
     transition: all .5s;
 }
+
+
 
 .col-12 :hover .del-btn {
     opacity: 1;

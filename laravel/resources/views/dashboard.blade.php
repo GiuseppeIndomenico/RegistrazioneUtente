@@ -49,14 +49,14 @@
         </div>
 
 
-        <div class="row g-2">
+        <div class="row g-4">
             @foreach (Auth::user()->posts as $post)
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 position-relative">
                     <div class="card shadow p-0 mb-3">
                         <div class="card-header text-center fs-3 text-capitalize fw-bold">
                             <h2 class="text-danger">{{ $post->title }}</h2>
                             <!-- X per cancellare -->
-                            <button class="btn btn-outline-danger position-absolute top-0 end-0 m-2 del-btn"
+                            <button class="btn btn-danger position-absolute del-btn"
                                 onclick="confirmDelete('{{ $post->id }}')" id="delete-btn-{{ $post->id }}"><i
                                     class="fa-solid fa-trash"></i></button>
                         </div>
