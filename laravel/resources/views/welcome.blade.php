@@ -9,6 +9,8 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <!-- Styles -->
     <style>
@@ -433,7 +435,7 @@
                     </g>
                 </svg>
             </div>
-
+            <h1 class="text-danger">Ciao</h1>
             <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                 <div class="grid grid-cols-1 md:grid-cols-2">
                     <div class="p-6">
@@ -525,7 +527,8 @@
                                     href="https://laravel.com/docs/broadcasting" class="underline">Echo</a>, <a
                                     href="https://laravel.com/docs/horizon" class="underline">Horizon</a>, <a
                                     href="https://laravel.com/docs/sanctum" class="underline">Sanctum</a>, <a
-                                    href="https://laravel.com/docs/telescope" class="underline">Telescope</a>, and more.
+                                    href="https://laravel.com/docs/telescope" class="underline">Telescope</a>, and
+                                more.
                             </div>
                         </div>
                     </div>
