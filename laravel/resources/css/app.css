@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.del-btn {
+    opacity: 0;
+
+    transition: all .5s;
+}
+
+.col-12 :hover .del-btn {
+    opacity: 1;
+
+}

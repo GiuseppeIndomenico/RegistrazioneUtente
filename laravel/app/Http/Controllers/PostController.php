@@ -28,4 +28,13 @@ class PostController extends Controller
 
         return redirect()->route('dashboard')->with('success', 'Post creato con successo!'); // Modifica se necessario
     }
+
+    public function destroy($id)
+    {
+        $post = Post::findOrFail($id);
+        $post->delete();
+
+        return response()->json(['message' => 'Post cancellato con successo']);
+    }
+
 }
