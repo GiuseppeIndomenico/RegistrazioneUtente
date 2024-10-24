@@ -3,15 +3,17 @@
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Dashboard') }}
         </h2>
+        @if (session('success'))
+            <div
+                class="alert alert-success position-fixed top-0 start-50 translate-middle-x w-25  text-center mt-5 sticky">
+                {{ session('success') }}
+            </div>
+        @endif
     </x-slot>
 
 
     <div class="container">
-        @if (session('success'))
-            <div class="alert alert-success text-center m-3">
-                {{ session('success') }}
-            </div>
-        @endif
+
         <button class="my-3 btn btn-primary" data-bs-toggle="modal" data-bs-target="#createPostModal">Crea un Nuovo
             Post</button>
 
@@ -88,6 +90,8 @@
     </div>
 </div>
 
+</div>
+
 
 <script>
     function resetForm() {
@@ -106,26 +110,25 @@
     document.getElementById('deletePostButton').addEventListener('click', function() {
         const postId = this.getAttribute('data-id');
 
-        fetch(`/posts/${postId}`, {
-                method: 'DELETE',
-                headers: {
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                    'Content-Type': 'application/json',
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Mostra l'alert di successo
-                alert(data.message);
+        // Quando viene confermata la cancellazione, effettua una normale richiesta di cancellazione
+        window.location.href = `/posts/${postId}/delete`;
+    });
 
-                // Rimuovi la card del post cancellato dalla vista
-                const card = document.querySelector(`#delete-btn-${postId}`).closest('.col-12');
-                card.remove();
+    document.addEventListener('DOMContentLoaded', function() {
+        // Se l'alert di successo è presente
+        const alert = document.querySelector('.alert-success');
 
-                // Chiudi il modale
-                const modal = bootstrap.Modal.getInstance(document.getElementById('confirmDeleteModal'));
-                modal.hide();
-            })
-            .catch(error => console.error('Error:', error));
+        if (alert) {
+            // Dopo 3 secondi (3000 ms), fai scomparire l'alert
+            setTimeout(function() {
+                alert.style.transition = "opacity 0.5s ease"; // Transizione di opacità
+                alert.style.opacity = '0'; // Fai svanire l'alert
+
+                // Dopo 500ms (tempo per la transizione), nascondi l'alert con display: none
+                setTimeout(function() {
+                    alert.style.display = 'none';
+                }, 500); // Attendi che la transizione sia completata
+            }, 13000); // L'alert resta visibile per 3 secondi
+        }
     });
 </script>
