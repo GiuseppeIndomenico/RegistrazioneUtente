@@ -57,12 +57,14 @@
             <x-input-label for="profile_image" :value="__('Profile Image')" />
 
             <!-- Campo file per selezionare l'immagine -->
-            <input type="file" name="profile_image" id="profile_image" class="mt-1 block w-full">
+            <input type="file" name="profile_image" id="profile_image" class="mt-1 block w-full" accept="image/*"
+                onchange="previewImage(event)">
             <x-input-error class="mt-2" :messages="$errors->get('profile_image')" />
 
             <!-- Visualizzazione dell'immagine attuale o immagine di default -->
             <div class="mt-4">
-                <img src="{{ $user->profile_image ? asset('storage/' . $user->profile_image) : asset('images/default-profile.png') }}"
+                <img id="image_preview"
+                    src="{{ $user->profile_image ? asset('storage/' . $user->profile_image) : asset('images/default-profile.png') }}"
                     alt="Immagine di profilo" class="w-20 h-20 rounded-full">
             </div>
         </div>
@@ -77,3 +79,19 @@
         </div>
     </form>
 </section>
+
+<script>
+    function previewImage(event) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function() {
+            const imgPreview = document.getElementById('image_preview');
+            imgPreview.src = reader.result; // Imposta l'anteprima dell'immagine
+        }
+
+        if (file) {
+            reader.readAsDataURL(file); // Legge il file come URL di dati
+        }
+    }
+</script>
