@@ -42,7 +42,7 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ __('Modifica profilo') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -86,14 +86,20 @@
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
-            <div class="px-4">
-                <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+            <div class="px-4 row">
+                <div class="col-4">
+                    <img src="{{ Auth::user()->profile_image ? asset('storage/' . Auth::user()->profile_image) : asset('images/default-profile.png') }}"
+                        alt="{{ Auth::user()->name }}" class="h-8 w-8 rounded-full mr-2">
+                </div>
+                <div class="col">
+                    <div class="font-medium text-base text-gray-800 dark:text-gray-200 ">{{ Auth::user()->name }}</div>
+                    <div class="font-medium text-sm text-gray-500 ">{{ Auth::user()->email }}</div>
+                </div>
             </div>
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
+                    {{ __('Modifica profilo') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
