@@ -4,14 +4,26 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
+    <div class="container">
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-danger dark:text-gray-100">
-                    {{ __("You're logged in!") }}
+        <a class="my-3 btn btn-primary" href="{{ route('posts.create') }}">Crea un Nuovo Post</a>
+
+        <div class="row g-2">
+            @foreach (Auth::user()->posts as $post)
+                <div class=" col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card shadow p-0 mb-3">
+                        <div class="card-header text-center fs-3 text-capitalize fw-bold">
+                            <h2 class="text-danger">{{ $post->title }}</h2>
+                        </div>
+                        <div class="card-body">
+                            <p>{{ $post->content }}</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            @endforeach
         </div>
+
+
     </div>
+
 </x-app-layout>

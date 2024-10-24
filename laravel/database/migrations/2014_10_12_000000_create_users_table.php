@@ -22,6 +22,16 @@ return new class extends Migration {
             $table->rememberToken();
             $table->timestamps();
         });
+
+        Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Relazione con l'utente
+            $table->string('title'); // Titolo del post
+            $table->text('content'); // Contenuto del post
+            $table->timestamps();
+        });
+
+
     }
 
 
