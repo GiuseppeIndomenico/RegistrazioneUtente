@@ -20,9 +20,12 @@ class PostController extends Controller
             'content' => 'required|string',
         ]);
 
-        // Crea il post associandolo all'utente autenticato
-        Auth::user()->posts()->create($request->all());
+        $post = new Post();
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->user_id = auth()->id(); // Associa il post all'utente loggato
+        $post->save();
 
-        return redirect()->route('dashboard')->with('success', 'Post creato con successo!');
+        return redirect()->route('dashboard')->with('success', 'Post creato con successo!'); // Modifica se necessario
     }
 }
