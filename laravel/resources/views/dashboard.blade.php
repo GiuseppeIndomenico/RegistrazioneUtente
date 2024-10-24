@@ -36,8 +36,8 @@
                                 <textarea class="form-control" id="post_content" name="content" rows="3" required></textarea>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary"
-                                    data-bs-dismiss="modal">Annulla</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                    onclick="resetForm()">Annulla</button>
                                 <button type="submit" class="btn btn-primary">Crea</button>
                             </div>
                         </form>
@@ -45,6 +45,7 @@
                 </div>
             </div>
         </div>
+
 
         <div class="row g-2">
             @foreach (Auth::user()->posts as $post)
@@ -62,3 +63,9 @@
         </div>
     </div>
 </x-app-layout>
+
+<script>
+    function resetForm() {
+        document.getElementById('createPostForm').reset(); // Resetta il modulo
+    }
+</script>
