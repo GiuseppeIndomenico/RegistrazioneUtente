@@ -23,6 +23,15 @@
     color: var(--primary);
 }
 
+.bg-pr {
+    background-color: var(--primary);
+}
+
+.bg-pr-light {
+    background-color: rgba(0, 255, 65, 0.8);
+}
+
+
 .btn-dark {
     background-color: var(--primary);
     color: #212529;
@@ -34,8 +43,7 @@
 
 .container-post {
     border: 1px solid var(--primary);
-    background-color: transparent;
-    backdrop-filter: blur(8px);
+    box-shadow: 0px 0px 10px var(--primary);
     margin-top: 5px;
     border-radius: 5px;
     padding: 5px;

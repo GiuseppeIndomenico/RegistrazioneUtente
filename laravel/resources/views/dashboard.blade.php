@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl txt-pr leading-tight">
+        <h2 class="font-semibold text-xl text-dark leading-tight">
             {{ Auth::user()->name . __('\'s thoughts') }}
         </h2>
         @if (session('success'))
