@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
+        <h2 class="font-semibold text-xl txt-pr leading-tight">
+            {{ Auth::user()->name . __('\'s thoughts') }}
         </h2>
         @if (session('success'))
             <div
@@ -14,7 +14,7 @@
 
     <div class="container">
 
-        <button class="my-3 btn btn-primary" data-bs-toggle="modal" data-bs-target="#createPostModal">Crea un Nuovo
+        <button class="my-3 btn btn-dark" data-bs-toggle="modal" data-bs-target="#createPostModal">Crea un Nuovo
             Post</button>
 
         <!-- Modale per la creazione del post -->
@@ -49,12 +49,12 @@
         </div>
 
 
-        <div class="row g-4">
+        <div class="row g-4 container-post">
             @foreach (Auth::user()->posts as $post)
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 position-relative">
                     <div class="card shadow p-0 mb-3">
-                        <div class="card-header text-center fs-3 text-capitalize fw-bold">
-                            <h2 class="text-danger">{{ $post->title }}</h2>
+                        <div class="card-header bg-dark text-center fs-3 text-capitalize fw-bold">
+                            <h2 class="txt-pr">{{ $post->title }}</h2>
                             <!-- X per cancellare -->
                             <button class="btn btn-danger position-absolute del-btn"
                                 onclick="confirmDelete('{{ $post->id }}')" id="delete-btn-{{ $post->id }}"><i
