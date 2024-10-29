@@ -255,7 +255,7 @@
             color: rgba(113, 128, 150, var(--text-opacity))
         }
 
-        .text-gray-700 {
+        .text-dark {
             --text-opacity: 1;
             color: #4a5568;
             color: rgba(74, 85, 104, var(--text-opacity))
@@ -435,15 +435,14 @@
         @if (Route::has('login'))
             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block w-100 flex bg-pr shadow">
                 @auth
-                    <a href="{{ url('/dashboard') }}"
-                        class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                    <a href="{{ url('/dashboard') }}" class="text-sm text-dark dark:text-gray-500 underline">Dashboard</a>
                 @else
                     <div class="d-flex justify-content-end">
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                        <a href="{{ route('login') }}" class="text-sm text-dark dark:text-gray-500 underline">Log in</a>
 
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}"
-                                class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                                class="ml-4 text-sm text-dark dark:text-gray-500 underline">Register</a>
                         @endif
                     </div>
                 @endauth
@@ -463,6 +462,21 @@
                 <h4>Learn what will open the doors to your dreams!</h4>
             </div>
 
+
+            <div class="d-sm-block d-md-none d-flex">
+                @auth
+                    <a href="{{ url('/dashboard') }}" class="text-sm text-dark dark:text-gray-500 underline">Dashboard</a>
+                @else
+                    <div class="d-flex justify-content-end">
+                        <a href="{{ route('login') }}" class="text-sm text-dark dark:text-gray-500 underline">Log in</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}"
+                                class="ml-4 text-sm text-dark dark:text-gray-500 underline">Register</a>
+                        @endif
+                    </div>
+                @endauth
+            </div>
 
 
         </div>
