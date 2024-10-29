@@ -43,16 +43,27 @@
 
 .container-post {
     border: 1px solid var(--primary);
-    box-shadow: 0px 0px 10px var(--primary);
     margin-top: 5px;
     border-radius: 5px;
     padding: 5px;
 
 }
 
+.glow-pr {
+    box-shadow: 0px 0px 10px var(--primary);
+}
+
 .background-pat {
-    background-image: url('/images/background-pattern.png');
+    background-image: url('./images/background-pattern.png');
     background-size: cover;
-    /* Assicura che l'immagine copra l'intero sfondo */
     background-position: center;
+}
+
+.bg-input {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-color: #212529;
+}
+
+.bg-input:focus {
+    box-shadow: 0px 0px 10px 212529;
 }

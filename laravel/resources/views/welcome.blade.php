@@ -404,7 +404,6 @@
         .background-pat {
             background-image: url('./images/background-pattern.png');
             background-size: cover;
-            /* Assicura che l'immagine copra l'intero sfondo */
             background-position: center;
         }
 
