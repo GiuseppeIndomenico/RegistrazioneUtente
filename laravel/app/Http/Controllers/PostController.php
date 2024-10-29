@@ -26,7 +26,7 @@ class PostController extends Controller
         $post->user_id = auth()->id(); // Associa il post all'utente loggato
         $post->save();
 
-        return redirect()->route('dashboard')->with('success', 'Post creato con successo!'); // Modifica se necessario
+        return redirect()->route('dashboard')->with('success', 'Post created successfully!'); // Modifica se necessario
     }
     public function destroy($id)
     {
@@ -34,7 +34,7 @@ class PostController extends Controller
         $post->delete();
 
         // Reindirizza alla dashboard con un messaggio di successo
-        return redirect()->route('dashboard')->with('success', 'Post cancellato con successo!');
+        return redirect()->route('dashboard')->with('success', 'Post successfully deleted!');
     }
 
 }

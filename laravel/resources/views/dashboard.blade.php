@@ -1,11 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-dark leading-tight">
+        <h1 class="font-bold fs-1 text-xl text-dark leading-tight">
             {{ Auth::user()->name . __('\'s thoughts') }}
-        </h2>
+        </h1>
         @if (session('success'))
             <div
-                class="alert alert-success position-fixed top-0 start-50 translate-middle-x w-25  text-center mt-5 sticky">
+                class="alert bg-dark txt-pr glow-pr border-0 position-fixed top-0 start-50 translate-middle-x w-25  text-center mt-5 sticky">
                 {{ session('success') }}
             </div>
         @endif
@@ -14,7 +14,9 @@
 
     <div class="container background-pat">
 
-        <button class="my-3 btn btn-dark" data-bs-toggle="modal" data-bs-target="#createPostModal">Crea un Nuovo
+        <button class="my-3 btn btn-dark glow-pr border-0" data-bs-toggle="modal" data-bs-target="#createPostModal">Create
+            a new
+            post
             Post</button>
 
         <!-- Modale per la creazione del post -->
@@ -22,11 +24,11 @@
             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="createPostModalLabel">Crea un Nuovo Post</h5>
+                    <div class="modal-header bg-pr txt-dark border-dark">
+                        <h5 class="modal-title" id="createPostModalLabel">Crete a new Post</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body txt-pr bg-dark">
                         <form id="createPostForm" method="POST" action="{{ route('posts.store') }}">
                             @csrf
                             <div class="mb-3">
@@ -38,9 +40,9 @@
                                 <textarea class="form-control" id="post_content" name="content" rows="3" required></textarea>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                <button type="button" class="btn btn-dark" data-bs-dismiss="modal"
                                     onclick="resetForm()">Annulla</button>
-                                <button type="submit" class="btn btn-primary">Crea</button>
+                                <button type="submit" class="btn btn-dark">Crea</button>
                             </div>
                         </form>
                     </div>
@@ -56,7 +58,7 @@
                         <div class="card-header bg-dark text-center fs-3 text-capitalize fw-bold">
                             <h2 class="txt-pr">{{ $post->title }}</h2>
                             <!-- X per cancellare -->
-                            <button class="btn btn-danger position-absolute del-btn"
+                            <button class="btn btn-dark position-absolute del-btn"
                                 onclick="confirmDelete('{{ $post->id }}')" id="delete-btn-{{ $post->id }}"><i
                                     class="fa-solid fa-trash"></i></button>
                         </div>
@@ -75,16 +77,16 @@
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header border-dark bg-pr text-dark">
                 <h5 class="modal-title" id="confirmDeleteModalLabel">Conferma Cancellazione</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body bg-dark txt-pr">
                 Sei sicuro di voler cancellare questo post?
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                <button type="button" class="btn btn-danger" id="deletePostButton">Cancella</button>
+            <div class="modal-footer bg-dark ">
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Annulla</button>
+                <button type="button" class="btn btn-dark" id="deletePostButton">Cancella</button>
             </div>
         </div>
     </div>
