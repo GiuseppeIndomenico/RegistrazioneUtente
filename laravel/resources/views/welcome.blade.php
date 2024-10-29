@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="app.css">
     <!-- Styles -->
     <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -397,33 +397,44 @@
                 color: rgba(107, 114, 128, var(--tw-text-opacity))
             }
 
-            .background-pat {
-                background-image: url('/images/background-pattern.png');
-                background-size: cover;
-                /* Assicura che l'immagine copra l'intero sfondo */
-                background-position: center;
-            }
 
-            :root {
-                --primary: #00ff41;
-            }
 
-            .txt-pr {
-                color: var(--primary);
-            }
+        }
 
+        .background-pat {
+            background-image: url('./images/background-pattern.png');
+            background-size: cover;
+            /* Assicura che l'immagine copra l'intero sfondo */
+            background-position: center;
+        }
+
+        :root {
+            --primary: #00ff41;
+        }
+
+        .txt-pr {
+            color: var(--primary);
+        }
+
+        .bg-pr {
+            background-color: rgba(0, 255, 65, 0.8) !important;
+            backdrop-filter: blur(3px);
         }
 
         body {
             font-family: 'Nunito', sans-serif;
+            background-image: url('./images/background-pattern.png');
+            background-size: cover;
+            /* Assicura che l'immagine copra l'intero sfondo */
+            background-position: center;
         }
     </style>
 </head>
 
 <body class="antialiased">
-    <div class="relative flex items-top justify-center min-h-screen sm:items-center py-4 sm:pt-0 shadow bg-dark">
+    <div class="relative flex items-top justify-center min-h-screen sm:items-center py-4 sm:pt-0 shadow">
         @if (Route::has('login'))
-            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block w-100 flex">
+            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block w-100 flex bg-pr shadow">
                 @auth
                     <a href="{{ url('/dashboard') }}"
                         class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
@@ -441,8 +452,9 @@
 
         @endif
 
-
     </div>
+
+
 </body>
 
 </html>
