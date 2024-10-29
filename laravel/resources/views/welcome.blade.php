@@ -431,7 +431,7 @@
 </head>
 
 <body class="antialiased">
-    <div class="relative flex items-top justify-center min-h-screen sm:items-center py-4 sm:pt-0 shadow">
+    <div class="relative flex items-top justify-content-center min-h-screen sm:items-center py-4 sm:pt-0">
         @if (Route::has('login'))
             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block w-100 flex bg-pr shadow">
                 @auth
@@ -450,8 +450,25 @@
             </div>
 
         @endif
+        <div class="container rounded bg-pr z-10 py-4 row shadow">
+            <div class="col-6">
+                <div class="w-100">
+                    <img class="img-fluid" src="images\TheoryUniversity-min.webp" alt="logo">
+                </div>
+            </div>
+            <div class="col-6 d-flex justify-content-around items-center flex-column py-4">
+
+                <h1 class="mb-3"> Welcome in Theory <b class="text-white">University</b> </h1>
+
+                <h4>Learn what will open the doors to your dreams!</h4>
+            </div>
+
+
+
+        </div>
 
     </div>
+
 
 
 </body>
