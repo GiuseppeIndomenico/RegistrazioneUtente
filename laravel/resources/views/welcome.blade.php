@@ -424,14 +424,17 @@
             font-family: 'Nunito', sans-serif;
             background-image: url('./images/background-pattern.png');
             background-size: cover;
-            /* Assicura che l'immagine copra l'intero sfondo */
             background-position: center;
+        }
+
+        .z-1 {
+            z-index: 10;
         }
     </style>
 </head>
 
-<body class="antialiased">
-    <div class="relative flex items-top justify-content-center min-h-screen sm:items-center py-4 sm:pt-0">
+<body class="antialiased min-h-screen">
+    <div class="relative z-1 flex items-top justify-content-center sm:items-center py-4 sm:pt-0">
         @if (Route::has('login'))
             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block w-100 flex bg-pr shadow">
                 @auth
@@ -449,37 +452,37 @@
             </div>
 
         @endif
-        <div class="container rounded bg-pr z-10 py-4 row shadow">
-            <div class="col-6">
-                <div class="w-100">
-                    <img class="img-fluid" src="images\TheoryUniversity-min.webp" alt="logo">
-                </div>
+
+    </div>
+    <div class="container m-auto mt-5 rounded bg-pr z-0 py-4 row shadow flex-column items-center flex-md-row ">
+        <div class="col-6">
+            <div class="w-100">
+                <img class="img-fluid" src="images\TheoryUniversity-min.webp" alt="logo">
             </div>
-            <div class="col-6 d-flex justify-content-around items-center flex-column py-4">
-
-                <h1 class="mb-3"> Welcome in Theory <b class="text-white">University</b> </h1>
-
-                <h4>Learn what will open the doors to your dreams!</h4>
-            </div>
-
-
-            <div class="d-sm-block d-md-none d-flex">
-                @auth
-                    <a href="{{ url('/dashboard') }}" class="text-sm text-dark dark:text-gray-500 underline">Dashboard</a>
-                @else
-                    <div class="d-flex justify-content-end">
-                        <a href="{{ route('login') }}" class="text-sm text-dark dark:text-gray-500 underline">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}"
-                                class="ml-4 text-sm text-dark dark:text-gray-500 underline">Register</a>
-                        @endif
-                    </div>
-                @endauth
-            </div>
-
-
         </div>
+        <div class="col-6 d-flex justify-content-around items-center flex-column py-4 text-center">
+
+            <h1 class="mb-3"> Welcome in Theory <b class="text-white">University</b> </h1>
+
+            <h4>Learn what will open the doors to your dreams!</h4>
+        </div>
+
+
+        <div class="d-sm-none d-flex">
+            @auth
+                <a href="{{ url('/dashboard') }}" class="text-sm text-dark dark:text-gray-500 underline">Dashboard</a>
+            @else
+                <div class="d-flex justify-content-end">
+                    <a href="{{ route('login') }}" class="text-sm text-dark dark:text-gray-500 underline">Log in</a>
+
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}"
+                            class="ml-4 text-sm text-dark dark:text-gray-500 underline">Register</a>
+                    @endif
+                </div>
+            @endauth
+        </div>
+
 
     </div>
 
